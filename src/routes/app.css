@@ -1,0 +1,41 @@
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 1rem;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	color: white;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+div#page-container {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: #111;
+}
+
+a {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+button {
+	font: inherit;
+	background: inherit;
+	border: inherit;
+	color: inherit;
+	cursor: pointer;
+	padding: 0;
+}

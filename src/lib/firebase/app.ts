@@ -1,0 +1,14 @@
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+
+const app = initializeApp({
+	apiKey: 'AIzaSyDauLi6u5Qauk0p8H3hWFv_eQXR5WOYDpk',
+	authDomain: 'minidoc-db100.firebaseapp.com',
+	projectId: 'minidoc-db100',
+	storageBucket: 'minidoc-db100.appspot.com',
+	messagingSenderId: '401939679769',
+	appId: '1:401939679769:web:c014b38068a5e67b32f888',
+	measurementId: 'G-4NRBG4J8WL'
+});
+
+export const auth = getAuth(app);
