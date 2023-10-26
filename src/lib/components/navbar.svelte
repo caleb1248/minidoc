@@ -7,7 +7,7 @@
 	<span class="appname">Minidoc</span>
 	<div class="right">
 		{#if loggedIn}
-			<a href="/home">My docs</a>
+			<a href="/app">My docs</a>
 			<button on:click={() => auth.signOut()}>Sign out</button>
 		{:else}
 			<a href="/auth/login" style="margin-right: 1rem">Login</a>

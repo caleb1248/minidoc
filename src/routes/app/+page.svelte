@@ -1,18 +1,15 @@
 <script lang="ts">
-	import { authStore } from '$lib/firebase';
+	import { auth, authStore } from '$lib/firebase';
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
 	import Navbar from '$lib/components/navbar.svelte';
-
-	let mounted = false;
-	onMount(() => (mounted = true));
+	import { browser } from '$app/environment';
 
 	const user = authStore();
 
 	function redirectIfNeeded() {
-		if (mounted) {
+		if (browser) {
 			if (!$user) {
-				goto('/');
+				goto('/auth/login');
 			} else if (!$user.emailVerified) {
 				goto('/auth/verify-email');
 			}
