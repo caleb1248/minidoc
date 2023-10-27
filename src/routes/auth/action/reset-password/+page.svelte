@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Input from '$lib/components/input.svelte';
 	import { auth } from '$lib/firebase';
 	import { confirmPasswordReset } from 'firebase/auth';
 
@@ -8,6 +9,9 @@
 	let newPassword: string;
 	let confirmNewPassword: string;
 	let temporaryDisable = false;
+
+	$: (newPassword, confirmNewPassword), (temporaryDisable = false);
+
 	let err = '';
 
 	const { actionCode } = data;
@@ -30,18 +34,10 @@
 			<h1 style="margin-bottom: 1rem;">Reset your password</h1>
 			<p class="error">{err}</p>
 			<p>New password</p>
-			<input
-				bind:value={newPassword}
-				placeholder="●●●●●●●●"
-				on:input={() => (temporaryDisable = false)}
-			/>
+			<Input type="password" bind:value={newPassword} />
 			<p>Confirm new password</p>
-			<input
-				type="password"
-				bind:value={confirmNewPassword}
-				placeholder="●●●●●●●●"
-				on:input={() => (temporaryDisable = false)}
-			/>
+			<Input type="password" bind:value={confirmNewPassword} />
+
 			<br />
 			<button
 				class="login-button"
@@ -78,20 +74,6 @@
 				margin: 0;
 				&:empty {
 					margin: 0;
-				}
-			}
-
-			input {
-				background-color: #222;
-				padding: 1rem;
-				color: white;
-				border: 1px solid #444;
-				border-radius: 5px;
-				font-family: 'Courier New', Courier, monospace;
-
-				&:focus {
-					outline: none;
-					border: 1px solid #bbb;
 				}
 			}
 

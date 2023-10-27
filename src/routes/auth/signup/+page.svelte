@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Navbar from '$lib/components/navbar.svelte';
+	import Input from '$lib/components/input.svelte';
 	import { auth, authStore } from '$lib/firebase';
 	import { createUserWithEmailAndPassword } from 'firebase/auth';
 
@@ -9,6 +10,9 @@
 	let passwordConfirm: string;
 	let err: string = '';
 	let temporaryDisable = false;
+
+	$: (email, password, passwordConfirm), (temporaryDisable = false);
+
 	let user = authStore();
 
 	$: if ($user) goto('/app');
@@ -29,20 +33,11 @@
 			<h1 style="margin-bottom: 1rem;">Sign up</h1>
 			<p class="error">{err}</p>
 			<p>Email</p>
-			<input
-				bind:value={email}
-				placeholder="email@example.com"
-				on:input={() => (temporaryDisable = false)}
-			/>
+			<Input bind:value={email} />
 			<p>Password</p>
-			<input
-				type="password"
-				bind:value={password}
-				placeholder="●●●●●●●●"
-				on:input={() => (temporaryDisable = false)}
-			/>
+			<Input type="password" bind:value={password} />
 			<p>Confirm password</p>
-			<input type="password" bind:value={passwordConfirm} placeholder="●●●●●●●●" />
+			<Input type="password" bind:value={passwordConfirm} />
 			<br />
 			<button
 				class="signup-button"
@@ -79,20 +74,6 @@
 				margin: 0;
 				&:empty {
 					margin: 0;
-				}
-			}
-
-			input {
-				background-color: #222;
-				padding: 1rem;
-				color: white;
-				border: 1px solid #444;
-				border-radius: 5px;
-				font-family: 'Courier New', Courier, monospace;
-
-				&:focus {
-					outline: none;
-					border: 1px solid #bbb;
 				}
 			}
 

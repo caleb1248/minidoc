@@ -14,7 +14,7 @@
 				things.
 			</p>
 			<div class="links">
-				<a href="/signup" class="bluebg" style="width: 100%;">Start writing stuff</a>
+				<a href="/auth/signup" class="bluebg" style="width: 100%;">Start writing stuff</a>
 			</div>
 		</div>
 	</main>
