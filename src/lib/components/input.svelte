@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let type: 'text' | 'password' = 'text';
 	export let placeholder = '';
-	export let value: string;
+	export let value = '';
 </script>
 
 <input

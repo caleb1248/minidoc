@@ -1,8 +1,9 @@
+import { PUBLIC_FIREBASE_API_KEY } from '$env/static/public';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const app = initializeApp({
-	apiKey: 'AIzaSyDauLi6u5Qauk0p8H3hWFv_eQXR5WOYDpk',
+	apiKey: PUBLIC_FIREBASE_API_KEY,
 	authDomain: 'minidoc-db100.firebaseapp.com',
 	projectId: 'minidoc-db100',
 	storageBucket: 'minidoc-db100.appspot.com',

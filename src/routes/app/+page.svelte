@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { auth, authStore } from '$lib/firebase';
+	import { authStore } from '$lib/firebase';
 	import { goto } from '$app/navigation';
 	import Navbar from '$lib/components/navbar.svelte';
 	import { browser } from '$app/environment';
@@ -9,7 +9,9 @@
 	function redirectIfNeeded() {
 		if (browser) {
 			if (!$user) {
-				goto('/auth/login');
+				setTimeout(() => {
+					if (!$user) goto('/auth/login');
+				}, 1200);
 			} else if (!$user.emailVerified) {
 				goto('/auth/verify-email');
 			}
@@ -20,7 +22,7 @@
 </script>
 
 <div id="page-container">
-	<Navbar loggedIn={$user ? true : false} />
+	<Navbar loggedIn />
 	<main>
 		<h1>Hello, world!</h1>
 	</main>

@@ -5,7 +5,7 @@
 </script>
 
 <div id="page-container">
-	<Navbar loggedIn={$user ? true : false} />
+	<Navbar loggedIn={!!$user} />
 	<main>
 		<h1 style="font-size: 4em; margin-top: 0; margin-bottom: 0.5em">Minidoc</h1>
 		<div class="rest">

@@ -2,19 +2,14 @@
 	import { goto } from '$app/navigation';
 	import Input from '$lib/components/input.svelte';
 	import Navbar from '$lib/components/navbar.svelte';
-	import { auth, authStore } from '$lib/firebase';
-	import { signInWithEmailAndPassword } from 'firebase/auth';
-
+	import { auth } from '$lib/firebase';
+	import { signInWithEmailAndPassword, EmailAuthProvider } from 'firebase/auth';
 	let email: string;
 	let password: string;
 	let err: string = '';
 	let temporaryDisable = false;
 
 	$: (email, password), (temporaryDisable = false);
-
-	let user = authStore();
-
-	$: if ($user) goto('/app');
 
 	async function login() {
 		try {

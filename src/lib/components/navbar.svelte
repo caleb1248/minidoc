@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { auth } from '$lib/firebase';
+	import { auth, signOut } from '$lib/firebase';
 	export let loggedIn: boolean;
 </script>
 
@@ -8,7 +8,7 @@
 	<div class="right">
 		{#if loggedIn}
 			<a href="/app">My docs</a>
-			<button on:click={() => auth.signOut()}>Sign out</button>
+			<button on:click={() => signOut()}>Sign out</button>
 		{:else}
 			<a href="/auth/login" style="margin-right: 1rem">Login</a>
 			<a href="/auth/signup" class="bluebg">Sign up</a>

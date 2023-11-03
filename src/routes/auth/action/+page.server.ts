@@ -9,6 +9,6 @@ export async function load({ url: { searchParams } }) {
 		case 'verifyEmail':
 			throw redirect(302, '/auth/action/verify-email?' + searchParams.toString());
 		default:
-			throw error(400, { message: 'Invalid mode' });
+			throw error(400, { message: 'Invalid email action' });
 	}
 }
